@@ -8,6 +8,6 @@ class PageController extends BaseController
 {
     public function index()
     {
-        return view('welcome_message');
+        return view('dashboard/index');
     }
 }

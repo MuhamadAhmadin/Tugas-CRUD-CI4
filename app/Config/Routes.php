@@ -33,6 +33,14 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'PageController::index');
 
+$routes->group('dashboard', function($routes){
+	$routes->get('organisasi', 'OrganisasiController::index');
+	$routes->get('organisasi/(:segment)/preview', 'OrganisasiController::preview/$1');
+    $routes->add('organisasi/new', 'OrganisasiController::create');
+	$routes->add('organisasi/(:segment)/edit', 'OrganisasiController::edit/$1');
+	$routes->get('organisasi/(:segment)/delete', 'OrganisasiController::delete/$1');
+});
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
