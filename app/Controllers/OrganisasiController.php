@@ -83,4 +83,14 @@ class OrganisasiController extends BaseController
         return redirect()->to('/dashboard/organisasi/'. $id .'/edit')->with('success', 'Berhasil mengupdate data');
     }
     
+    public function delete($id){
+        try {
+            $this->organisasi->delete($id);
+        } catch (Exception $e) {
+            return redirect()->to('dashboard/organisasi')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
+        
+        return redirect()->to('/dashboard/organisasi')->with('success', 'Berhasil menghapus data');
+    }
+    
 }
