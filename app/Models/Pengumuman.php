@@ -10,21 +10,19 @@ class Pengumuman extends Model
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
-    protected $allowedFields = ['kode', 'nama', 'founder', 'tahun'];
+    protected $allowedFields = ['judul', 'deskripsi', 'tanggal', 'visible', 'user_id'];
 
     protected $validationRules = [
-        'kode' => 'required',
-        'nama' => 'required',
-        'founder' => 'permit_empty',
-        'tahun' => 'permit_empty'
+        'judul' => 'required',
+        'deskripsi' => 'permit_empty',
+        'tanggal' => 'date',
+        'visible' => 'permit_empty',
+        'user_id' => 'permit_empty'
     ];
 
     protected $validationMessages = [
-        'kode' => [
-            'required' => 'Kode harus diisi'
-        ],
-        'nama' => [
-            'required' => 'Nama harus diisi'
+        'judul' => [
+            'required' => 'Nama Pengumuman harus diisi'
         ]
     ];
 }

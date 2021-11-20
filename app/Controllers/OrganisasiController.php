@@ -18,7 +18,7 @@ class OrganisasiController extends BaseController
 
     public function index()
     {
-        $model = new Organisasi();
+        $model = $this->organisasi;
         $data['organisasis'] = $model->findAll();
         $data['title'] = 'List Organisasi';
 		echo view('dashboard/organisasi/index', $data);

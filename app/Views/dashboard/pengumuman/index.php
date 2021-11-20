@@ -31,7 +31,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Data Tabel</h3>
                             <div class="float-right">
-                                <a href="<?= base_url('/dashboard/organisasi/new'); ?>"
+                                <a href="<?= base_url('/dashboard/pengumuman/new'); ?>"
                                     class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Tambah</a>
                             </div>
                         </div>
@@ -42,26 +42,26 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Kode</th>
-                                        <th>Nama</th>
-                                        <th>Founder</th>
-                                        <th>Tahun</th>
+                                        <th>Nama Pengumuman</th>
+                                        <th>Keterangan</th>
+                                        <th>Tanggal</th>
+                                        <th>Visible</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($organisasis as $item): ?>
+                                    <?php foreach($pengumumans as $item): ?>
                                     <tr>
                                         <td><?= $item->id ?></td>
-                                        <td><?= $item->kode ?></td>
-                                        <td><?= $item->nama ?></td>
-                                        <td><?= $item->founder ?></td>
-                                        <td><?= $item->tahun ?></td>
+                                        <td><?= $item->judul ?></td>
+                                        <td><?= $item->deskripsi ?></td>
+                                        <td><?= $item->tanggal ?></td>
+                                        <td><?= $item->visible == 1 ? 'Ya' : 'Tidak'; ?></td>
                                         <td class="d-flex justify-content-center">
-                                            <a href="<?= base_url('dashboard/organisasi/'.$item->id.'/edit') ?>"
+                                            <a href="<?= base_url('dashboard/pengumuman/'.$item->id.'/edit') ?>"
                                                 class="btn btn-sm btn-outline-warning mr-1">Edit</a>
                                             <a href="#"
-                                                data-href="<?= base_url('dashboard/organisasi/'.$item->id.'/delete') ?>"
+                                                data-href="<?= base_url('dashboard/pengumuman/'.$item->id.'/delete') ?>"
                                                 onclick="confirmToDelete(this)"
                                                 class="btn btn-sm btn-outline-danger">Delete</a>
                                         </td>

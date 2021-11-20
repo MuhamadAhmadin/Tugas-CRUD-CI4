@@ -18,7 +18,7 @@ class PengumumanController extends BaseController
 
     public function index()
     {
-        $model = new Pengumuman();
+        $model = $this->pengumuman;
         $data['pengumumans'] = $model->findAll();
         $data['title'] = 'List Pengumuman';
 		echo view('dashboard/pengumuman/index', $data);
@@ -32,11 +32,12 @@ class PengumumanController extends BaseController
 
     public function store()
     {
+        $visible = ($this->request->getPost('visible')) ? 1 : 0;
         $data = [
-            'kode' => $this->request->getPost('kode'),
-            'nama' => $this->request->getPost('nama'),
-            'founder' => $this->request->getPost('founder'),
-            'tahun' => $this->request->getPost('tahun'),
+            'judul' => $this->request->getPost('judul'),
+            'deskripsi' => $this->request->getPost('deskripsi'),
+            'tanggal' => $this->request->getPost('tanggal'),
+            'visible' => $visible,
         ];
 
         if (!$this->pengumuman->validate($data)) {
@@ -63,11 +64,12 @@ class PengumumanController extends BaseController
 
     public function update($id)
     {
+        $visible = ($this->request->getPost('visible')) ? 1 : 0;
         $data = [
-            'kode' => $this->request->getPost('kode'),
-            'nama' => $this->request->getPost('nama'),
-            'founder' => $this->request->getPost('founder'),
-            'tahun' => $this->request->getPost('tahun'),
+            'judul' => $this->request->getPost('judul'),
+            'deskripsi' => $this->request->getPost('deskripsi'),
+            'tanggal' => $this->request->getPost('tanggal'),
+            'visible' => $visible,
         ];
 
         if (!$this->pengumuman->validate($data)) {
