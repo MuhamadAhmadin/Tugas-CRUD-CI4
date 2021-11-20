@@ -25,30 +25,25 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="<?= base_url('dashboard/pengumuman/'. $data->id .'/update') ?>" method="post">
+                        <form action="<?= base_url('dashboard/jabatan/'. $data->id .'/update') ?>" method="post">
                             <input type="hidden" name="id" value="<?= $data->id ?>" />
                             <div class="card-body">
                                 <?= $this->include('layouts/components/validation_checker'); ?>
                                 <div class="form-group">
-                                    <label>Nama Pengumuman</label>
-                                    <input type="text" name="judul" value="<?= $data->judul ?>" class="form-control" >
+                                    <label>Kode Jabatan</label>
+                                    <input type="text" name="kode" value="<?= $data->kode ?>" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nama Jabatan</label>
+                                    <input type="text" name="nama" value="<?= $data->nama ?>" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Pangkat</label>
+                                    <input type="text" name="pangkat" value="<?= $data->pangkat ?>" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Keterangan</label>
-                                    <textarea name="deskripsi" id="deskripsi" cols="30" rows="4"
-                                        class="form-control"><?= $data->deskripsi ?></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label>Tanggal</label>
-                                    <input type="date" name="tanggal" value="<?= $data->tanggal ?>" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Visible</label>
-                                    <div class="form-check">
-                                        <input type="checkbox" name="visible" value="1" <?= $data->visible == 1 ? 'checked' : '' ?> class="form-check-input"
-                                            id="visible">
-                                        <label class="form-check-label" for="visible">Ya</label>
-                                    </div>
+                                    <input type="text" name="keterangan" value="<?= $data->keterangan ?>" class="form-control">
                                 </div>
                             </div>
                             <!-- /.card-body -->

@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Pengumuman extends Migration
+class Berita extends Migration
 {
     public function up()
     {
@@ -39,11 +39,11 @@ class Pengumuman extends Migration
 		// set Primary Key
 		$this->forge->addKey('id', TRUE);
 
-		$this->forge->createTable('pengumumans', TRUE);
+		$this->forge->createTable('beritas', TRUE);
     }
 
     public function down()
     {
-        $this->forge->dropTable('pengumumans');
+        $this->forge->dropTable('beritas');
     }
 }

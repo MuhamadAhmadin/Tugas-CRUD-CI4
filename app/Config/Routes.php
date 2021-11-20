@@ -42,6 +42,15 @@ $routes->group('dashboard', function($routes){
 	$routes->add('organisasi/(:segment)/edit', 'OrganisasiController::edit/$1');
 	$routes->add('organisasi/(:segment)/update', 'OrganisasiController::update/$1');
 	$routes->get('organisasi/(:segment)/delete', 'OrganisasiController::delete/$1');
+    
+    // Route Jabatan
+	$routes->get('jabatan', 'JabatanController::index');
+	$routes->get('jabatan/(:segment)/preview', 'JabatanController::preview/$1');
+    $routes->add('jabatan/new', 'JabatanController::new');
+    $routes->add('jabatan/store', 'JabatanController::store');
+	$routes->add('jabatan/(:segment)/edit', 'JabatanController::edit/$1');
+	$routes->add('jabatan/(:segment)/update', 'JabatanController::update/$1');
+	$routes->get('jabatan/(:segment)/delete', 'JabatanController::delete/$1');
 
     // Route Anggota
 	$routes->get('anggota', 'AnggotaController::index');
@@ -60,6 +69,15 @@ $routes->group('dashboard', function($routes){
 	$routes->add('pengumuman/(:segment)/edit', 'PengumumanController::edit/$1');
 	$routes->add('pengumuman/(:segment)/update', 'PengumumanController::update/$1');
 	$routes->get('pengumuman/(:segment)/delete', 'PengumumanController::delete/$1');
+    
+    // Route Berita
+	$routes->get('berita', 'BeritaController::index');
+	$routes->get('berita/(:segment)/preview', 'BeritaController::preview/$1');
+    $routes->add('berita/new', 'BeritaController::new');
+    $routes->add('berita/store', 'BeritaController::store');
+	$routes->add('berita/(:segment)/edit', 'BeritaController::edit/$1');
+	$routes->add('berita/(:segment)/update', 'BeritaController::update/$1');
+	$routes->get('berita/(:segment)/delete', 'BeritaController::delete/$1');
 });
 
 /*

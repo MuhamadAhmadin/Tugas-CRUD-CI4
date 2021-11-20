@@ -8,7 +8,7 @@ use Exception;
 
 class PengumumanController extends BaseController
 {
-    private Pengumuman $Pengumuman;
+    private Pengumuman $pengumuman;
 
     public function __construct()
     {

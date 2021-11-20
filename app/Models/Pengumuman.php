@@ -10,14 +10,13 @@ class Pengumuman extends Model
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
-    protected $allowedFields = ['judul', 'deskripsi', 'tanggal', 'visible', 'user_id'];
+    protected $allowedFields = ['judul', 'deskripsi', 'tanggal', 'visible'];
 
     protected $validationRules = [
         'judul' => 'required',
         'deskripsi' => 'permit_empty',
         'tanggal' => 'date',
         'visible' => 'permit_empty',
-        'user_id' => 'permit_empty'
     ];
 
     protected $validationMessages = [

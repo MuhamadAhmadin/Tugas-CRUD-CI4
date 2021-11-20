@@ -25,16 +25,16 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="<?= base_url('dashboard/pengumuman/'. $data->id .'/update') ?>" method="post">
+                        <form action="<?= base_url('dashboard/berita/'. $data->id .'/update') ?>" method="post">
                             <input type="hidden" name="id" value="<?= $data->id ?>" />
                             <div class="card-body">
                                 <?= $this->include('layouts/components/validation_checker'); ?>
                                 <div class="form-group">
-                                    <label>Nama Pengumuman</label>
+                                    <label>Judul berita</label>
                                     <input type="text" name="judul" value="<?= $data->judul ?>" class="form-control" >
                                 </div>
                                 <div class="form-group">
-                                    <label>Keterangan</label>
+                                    <label>Konten</label>
                                     <textarea name="deskripsi" id="deskripsi" cols="30" rows="4"
                                         class="form-control"><?= $data->deskripsi ?></textarea>
                                 </div>

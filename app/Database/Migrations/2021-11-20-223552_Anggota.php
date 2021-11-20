@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Pengumuman extends Migration
+class Anggota extends Migration
 {
     public function up()
     {
@@ -15,23 +15,33 @@ class Pengumuman extends Migration
 				'unsigned'       => true,
 				'auto_increment' => true
 			],
-			'judul'       => [
+			'nik'       => [
 				'type'           => 'VARCHAR',
-				'constraint'     => '255',
+				'constraint'     => '25',
                 'null'           => true,
 			],
-			'deskripsi'      => [
+			'nama'       => [
+				'type'           => 'VARCHAR',
+				'constraint'     => '129',
+                'null'           => true,
+			],
+			'alamat'      => [
                 'type'           => 'TEXT',
                 'null'           => true,
 			],
-            'tanggal' => [
-                'type'           => 'DATE',
+            'gender'       => [
+                'type'           => 'CHAR',
+                'constraint'     => '2',
                 'null'           => true,
+                'default'           => 'L',
             ],
-			'visible' => [
+			'organisasi_id' => [
                 'type'           => 'INT',
                 'constraint'     => '11',
-				'default'           => 1,
+			],
+			'jabatan_id' => [
+                'type'           => 'INT',
+                'constraint'     => '11',
 			],
             'created_at DATETIME DEFAULT CURRENT_TIMESTAMP'
 		]);
@@ -39,11 +49,11 @@ class Pengumuman extends Migration
 		// set Primary Key
 		$this->forge->addKey('id', TRUE);
 
-		$this->forge->createTable('pengumumans', TRUE);
+		$this->forge->createTable('anggotas', TRUE);
     }
 
     public function down()
     {
-        $this->forge->dropTable('pengumumans');
+        $this->forge->dropTable('anggotas');
     }
 }

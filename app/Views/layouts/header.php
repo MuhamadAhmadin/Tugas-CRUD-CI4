@@ -240,6 +240,14 @@
               </a>
             </li>
             <li class="nav-item">
+              <a href="<?= base_url('/dashboard/jabatan') ?>" class="nav-link">
+                <i class="fas fa-circle nav-icon"></i>
+                <p>
+                  Jabatan
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="<?= base_url('/dashboard/anggota') ?>" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
