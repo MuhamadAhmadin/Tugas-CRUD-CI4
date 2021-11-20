@@ -39,6 +39,7 @@ $routes->group('dashboard', function($routes){
     $routes->add('organisasi/new', 'OrganisasiController::new');
     $routes->add('organisasi/store', 'OrganisasiController::store');
 	$routes->add('organisasi/(:segment)/edit', 'OrganisasiController::edit/$1');
+	$routes->add('organisasi/(:segment)/update', 'OrganisasiController::update/$1');
 	$routes->get('organisasi/(:segment)/delete', 'OrganisasiController::delete/$1');
 });
 

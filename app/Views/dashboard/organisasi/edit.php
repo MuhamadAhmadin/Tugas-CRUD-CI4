@@ -25,7 +25,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="<?= base_url('dashboard/organisasi/update') ?>" method="post">
+                        <form action="<?= base_url('dashboard/organisasi/'. $data->id .'/update') ?>" method="post">
                             <input type="hidden" name="id" value="<?= $data->id ?>" />
                             <div class="card-body">
                                 <?= $this->include('layouts/components/validation_checker'); ?>
