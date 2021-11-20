@@ -21,7 +21,7 @@ $routes->setDefaultController('PageController');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
 
 /*
  * --------------------------------------------------------------------
@@ -36,7 +36,8 @@ $routes->get('/', 'PageController::index');
 $routes->group('dashboard', function($routes){
 	$routes->get('organisasi', 'OrganisasiController::index');
 	$routes->get('organisasi/(:segment)/preview', 'OrganisasiController::preview/$1');
-    $routes->add('organisasi/new', 'OrganisasiController::create');
+    $routes->add('organisasi/new', 'OrganisasiController::new');
+    $routes->add('organisasi/store', 'OrganisasiController::store');
 	$routes->add('organisasi/(:segment)/edit', 'OrganisasiController::edit/$1');
 	$routes->get('organisasi/(:segment)/delete', 'OrganisasiController::delete/$1');
 });
