@@ -31,8 +31,8 @@
                         <div class="card-header">
                             <h3 class="card-title">Data Tabel</h3>
                             <div class="float-right">
-                                <a href="<?= base_url('/dashboard/organisasi/new'); ?>"
-                                    class="btn btn-sm btn-primary"><i class="fas fa-plus"></i> Tambah</a>
+                                <a href="<?= base_url('/dashboard/anggota/new'); ?>" class="btn btn-sm btn-primary"><i
+                                        class="fas fa-plus"></i> Tambah</a>
                             </div>
                         </div>
                         <!-- /.card-header -->
@@ -42,26 +42,30 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Kode</th>
+                                        <th>NIK</th>
                                         <th>Nama</th>
-                                        <th>Founder</th>
-                                        <th>Tahun</th>
+                                        <th>Alamat</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>Organisasi</th>
+                                        <th>Jabatan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($organisasis as $item): ?>
+                                    <?php foreach($anggotas as $item): ?>
                                     <tr>
-                                        <td><?= $item['id'] ?></td>
-                                        <td><?= $item['kode'] ?></td>
-                                        <td><?= $item['nama'] ?></td>
-                                        <td><?= $item['founder'] ?></td>
-                                        <td><?= $item['tahun'] ?></td>
-                                        <td class="d-flex justify-content-between">
-                                            <a href="<?= base_url('dashboard/organisasi/'.$item['id'].'/edit') ?>"
+                                        <td><?= $item->id ?></td>
+                                        <td><?= $item->nik ?></td>
+                                        <td><?= $item->nama ?></td>
+                                        <td><?= character_limiter($item->alamat, 40, '...'); ?></td>
+                                        <td><?= $item->gender == 'L' ? 'Laki-Laki' : 'Perempuan'; ?></td>
+                                        <td><?= $item->organisasi_id ?></td>
+                                        <td><?= $item->jabatan_id ?></td>
+                                        <td class="d-flex justify-content-center">
+                                            <a href="<?= base_url('dashboard/anggota/'.$item->id.'/edit') ?>"
                                                 class="btn btn-sm btn-outline-warning mr-1">Edit</a>
                                             <a href="#"
-                                                data-href="<?= base_url('dashboard/organisasi/'.$item['id'].'/delete') ?>"
+                                                data-href="<?= base_url('dashboard/anggota/'.$item->id.'/delete') ?>"
                                                 onclick="confirmToDelete(this)"
                                                 class="btn btn-sm btn-outline-danger">Delete</a>
                                         </td>

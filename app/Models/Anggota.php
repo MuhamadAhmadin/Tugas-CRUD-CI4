@@ -6,37 +6,42 @@ use CodeIgniter\Model;
 
 class Anggota extends Model
 {
-    protected $DBGroup              = 'default';
-    protected $table                = 'anggotas';
-    protected $primaryKey           = 'id';
-    protected $useAutoIncrement     = true;
-    protected $insertID             = 0;
-    protected $returnType           = 'array';
-    protected $useSoftDeletes       = false;
-    protected $protectFields        = true;
-    protected $allowedFields        = [];
+    protected $table      = 'anggotas';
+    protected $primaryKey = 'id';
 
-    // Dates
-    protected $useTimestamps        = false;
-    protected $dateFormat           = 'datetime';
-    protected $createdField         = 'created_at';
-    protected $updatedField         = 'updated_at';
-    protected $deletedField         = 'deleted_at';
+    protected $useAutoIncrement = true;
+    protected $allowedFields = ['nik', 'nama', 'alamat', 'gender', 'organisasi_id', 'jabatan_id'];
 
-    // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
-    protected $skipValidation       = false;
-    protected $cleanValidationRules = true;
+    protected $validationRules = [
+        'nik' => 'required',
+        'nama' => 'required',
+        'alamat' => 'permit_empty',
+        'gender' => 'permit_empty',
+        'organisasi_id' => 'required',
+        'jabatan_id' => 'required',
+    ];
 
-    // Callbacks
-    protected $allowCallbacks       = true;
-    protected $beforeInsert         = [];
-    protected $afterInsert          = [];
-    protected $beforeUpdate         = [];
-    protected $afterUpdate          = [];
-    protected $beforeFind           = [];
-    protected $afterFind            = [];
-    protected $beforeDelete         = [];
-    protected $afterDelete          = [];
+    protected $validationMessages = [
+        'nik' => [
+            'required' => 'nik Berita harus diisi'
+        ],
+        'nama' => [
+            'required' => 'nama Berita harus diisi'
+        ],
+        'organisasi_id' => [
+            'required' => 'Organisasi harus dipilih, jika kosong, silahkan isi dari data master'
+        ],
+        'jabatan_id' => [
+            'required' => 'Jabatan harus dipilih, jika kosong, silahkan isi dari data master'
+        ],
+    ];
+
+    public function get_data()
+    {
+    	return $this->db->table($this->table)
+	    	->join('organisasis', 'organisasis.id = '.$this->table.'.organisasi_id', 'left')
+	    	->join('jabatans', 'jabatans.id = '.$this->table.'.jabatan_id', 'left')
+            ->select('anggotas.*, jabatans.nama AS nama_jabatan, organisasis.nama AS nama_organisasi')
+	    	->orderBy($this->table.'.id', 'desc')->get()->getResultObject();
+    }
 }

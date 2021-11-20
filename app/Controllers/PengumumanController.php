@@ -41,13 +41,13 @@ class PengumumanController extends BaseController
         ];
 
         if (!$this->pengumuman->validate($data)) {
-            return redirect()->to('/dashboard/pengumuman/new')->with('errors', $this->pengumuman->errors());
+            return redirect()->to('/dashboard/pengumuman/new')->withInput()->with('errors', $this->pengumuman->errors());
         }
 
         try {
             $this->pengumuman->protect(false)->insert($data);
         } catch (Exception $e) {
-            return redirect()->to('/dashboard/pengumuman/new')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+            return redirect()->to('/dashboard/pengumuman/new')->withInput()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
 
         return redirect()->to('/dashboard/pengumuman/new')->with('success', 'Berhasil menambahkan data');
@@ -73,13 +73,13 @@ class PengumumanController extends BaseController
         ];
 
         if (!$this->pengumuman->validate($data)) {
-            return redirect()->to('/dashboard/pengumuman/'. $id .'/edit')->with('errors', $this->pengumuman->errors());
+            return redirect()->to('/dashboard/pengumuman/'. $id .'/edit')->withInput()->with('errors', $this->pengumuman->errors());
         }
 
         try {
             $this->pengumuman->protect(false)->update($id, $data);
         } catch (Exception $e) {
-            return redirect()->to('/dashboard/pengumuman/'. $id .'/edit')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+            return redirect()->to('/dashboard/pengumuman/'. $id .'/edit')->withInput()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
 
         return redirect()->to('/dashboard/pengumuman/'. $id .'/edit')->with('success', 'Berhasil mengupdate data');

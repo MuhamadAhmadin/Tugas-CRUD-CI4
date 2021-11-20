@@ -8,6 +8,7 @@ class Organisasi extends Model
 {
     protected $table      = 'organisasis';
     protected $primaryKey = 'id';
+    protected $returnType     = 'object';
 
     protected $useAutoIncrement = true;
     protected $allowedFields = ['kode', 'nama', 'founder', 'tahun'];

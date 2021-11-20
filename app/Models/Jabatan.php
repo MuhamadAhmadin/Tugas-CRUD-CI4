@@ -8,6 +8,7 @@ class Jabatan extends Model
 {
     protected $table      = 'jabatans';
     protected $primaryKey = 'id';
+    protected $returnType     = 'object';
 
     protected $useAutoIncrement = true;
     protected $allowedFields = ['kode', 'nama', 'pangkat', 'keterangan'];

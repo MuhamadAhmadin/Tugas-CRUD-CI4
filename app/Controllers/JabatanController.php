@@ -40,13 +40,13 @@ class JabatanController extends BaseController
         ];
 
         if (!$this->jabatan->validate($data)) {
-            return redirect()->to('/dashboard/jabatan/new')->with('errors', $this->jabatan->errors());
+            return redirect()->to('/dashboard/jabatan/new')->withInput()->with('errors', $this->jabatan->errors());
         }
 
         try {
             $this->jabatan->protect(false)->insert($data);
         } catch (Exception $e) {
-            return redirect()->to('/dashboard/jabatan/new')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+            return redirect()->to('/dashboard/jabatan/new')->withInput()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
 
         return redirect()->to('/dashboard/jabatan/new')->with('success', 'Berhasil menambahkan data');
@@ -71,13 +71,13 @@ class JabatanController extends BaseController
         ];
 
         if (!$this->jabatan->validate($data)) {
-            return redirect()->to('/dashboard/jabatan/'. $id .'/edit')->with('errors', $this->jabatan->errors());
+            return redirect()->to('/dashboard/jabatan/'. $id .'/edit')->withInput()->with('errors', $this->jabatan->errors());
         }
 
         try {
             $this->jabatan->protect(false)->update($id, $data);
         } catch (Exception $e) {
-            return redirect()->to('/dashboard/jabatan/'. $id .'/edit')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+            return redirect()->to('/dashboard/jabatan/'. $id .'/edit')->withInput()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
 
         return redirect()->to('/dashboard/jabatan/'. $id .'/edit')->with('success', 'Berhasil mengupdate data');

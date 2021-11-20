@@ -41,13 +41,13 @@ class BeritaController extends BaseController
         ];
 
         if (!$this->berita->validate($data)) {
-            return redirect()->to('/dashboard/berita/new')->with('errors', $this->berita->errors());
+            return redirect()->to('/dashboard/berita/new')->withInput()->with('errors', $this->berita->errors());
         }
 
         try {
             $this->berita->protect(false)->insert($data);
         } catch (Exception $e) {
-            return redirect()->to('/dashboard/berita/new')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+            return redirect()->to('/dashboard/berita/new')->withInput()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
 
         return redirect()->to('/dashboard/berita/new')->with('success', 'Berhasil menambahkan data');
@@ -73,13 +73,13 @@ class BeritaController extends BaseController
         ];
 
         if (!$this->berita->validate($data)) {
-            return redirect()->to('/dashboard/berita/'. $id .'/edit')->with('errors', $this->berita->errors());
+            return redirect()->to('/dashboard/berita/'. $id .'/edit')->withInput()->with('errors', $this->berita->errors());
         }
 
         try {
             $this->berita->protect(false)->update($id, $data);
         } catch (Exception $e) {
-            return redirect()->to('/dashboard/berita/'. $id .'/edit')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+            return redirect()->to('/dashboard/berita/'. $id .'/edit')->withInput()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
 
         return redirect()->to('/dashboard/berita/'. $id .'/edit')->with('success', 'Berhasil mengupdate data');
@@ -89,7 +89,7 @@ class BeritaController extends BaseController
         try {
             $this->berita->delete($id);
         } catch (Exception $e) {
-            return redirect()->to('dashboard/berita')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+            return redirect()->to('dashboard/berita')->withInput()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
         
         return redirect()->to('/dashboard/berita')->with('success', 'Berhasil menghapus data');

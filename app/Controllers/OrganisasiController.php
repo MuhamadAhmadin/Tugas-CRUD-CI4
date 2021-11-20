@@ -40,13 +40,13 @@ class OrganisasiController extends BaseController
         ];
 
         if (!$this->organisasi->validate($data)) {
-            return redirect()->to('/dashboard/organisasi/new')->with('errors', $this->organisasi->errors());
+            return redirect()->to('/dashboard/organisasi/new')->withInput()->with('errors', $this->organisasi->errors());
         }
 
         try {
             $this->organisasi->protect(false)->insert($data);
         } catch (Exception $e) {
-            return redirect()->to('/dashboard/organisasi/new')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+            return redirect()->to('/dashboard/organisasi/new')->withInput()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
 
         return redirect()->to('/dashboard/organisasi/new')->with('success', 'Berhasil menambahkan data');
@@ -71,13 +71,13 @@ class OrganisasiController extends BaseController
         ];
 
         if (!$this->organisasi->validate($data)) {
-            return redirect()->to('/dashboard/organisasi/'. $id .'/edit')->with('errors', $this->organisasi->errors());
+            return redirect()->to('/dashboard/organisasi/'. $id .'/edit')->withInput()->with('errors', $this->organisasi->errors());
         }
 
         try {
             $this->organisasi->protect(false)->update($id, $data);
         } catch (Exception $e) {
-            return redirect()->to('/dashboard/organisasi/'. $id .'/edit')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+            return redirect()->to('/dashboard/organisasi/'. $id .'/edit')->withInput()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
 
         return redirect()->to('/dashboard/organisasi/'. $id .'/edit')->with('success', 'Berhasil mengupdate data');

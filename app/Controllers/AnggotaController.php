@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Anggota;
+use App\Models\Jabatan;
+use App\Models\Organisasi;
 use Exception;
 
 class AnggotaController extends BaseController
@@ -18,35 +20,41 @@ class AnggotaController extends BaseController
 
     public function index()
     {
-        $model = $this->anggota;
-        $data['anggotas'] = $model->findAll();
+        $data['anggotas'] = $this->anggota->get_data();
+        dd($data);
         $data['title'] = 'List Anggota';
 		echo view('dashboard/anggota/index', $data);
     }
 
     public function new()
     {
+        $organisasi = new Organisasi();
+        $jabatan = new Jabatan();
         $data['title'] = 'Tambah anggota';
+        $data['organisasis'] = $organisasi->findAll();
+        $data['jabatans'] = $jabatan->findAll();
 		echo view('dashboard/anggota/create', $data);
     }
 
     public function store()
     {
         $data = [
-            'kode' => $this->request->getPost('kode'),
+            'nik' => $this->request->getPost('nik'),
             'nama' => $this->request->getPost('nama'),
-            'founder' => $this->request->getPost('founder'),
-            'tahun' => $this->request->getPost('tahun'),
+            'alamat' => $this->request->getPost('alamat'),
+            'gender' => $this->request->getPost('gender'),
+            'organisasi_id' => $this->request->getPost('organisasi_id'),
+            'jabatan_id' => $this->request->getPost('jabatan_id'),
         ];
 
         if (!$this->anggota->validate($data)) {
-            return redirect()->to('/dashboard/anggota/new')->with('errors', $this->anggota->errors());
+            return redirect()->to('/dashboard/anggota/new')->withInput()->with('errors', $this->anggota->errors());
         }
 
         try {
             $this->anggota->protect(false)->insert($data);
         } catch (Exception $e) {
-            return redirect()->to('/dashboard/anggota/new')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+            return redirect()->to('/dashboard/anggota/new')->withInput()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
 
         return redirect()->to('/dashboard/anggota/new')->with('success', 'Berhasil menambahkan data');
@@ -64,20 +72,22 @@ class AnggotaController extends BaseController
     public function update($id)
     {
         $data = [
-            'kode' => $this->request->getPost('kode'),
+            'nik' => $this->request->getPost('nik'),
             'nama' => $this->request->getPost('nama'),
-            'founder' => $this->request->getPost('founder'),
-            'tahun' => $this->request->getPost('tahun'),
+            'alamat' => $this->request->getPost('alamat'),
+            'gender' => $this->request->getPost('gender'),
+            'organisasi_id' => $this->request->getPost('organisasi_id'),
+            'jabatan_id' => $this->request->getPost('jabatan_id'),
         ];
 
         if (!$this->anggota->validate($data)) {
-            return redirect()->to('/dashboard/anggota/'. $id .'/edit')->with('errors', $this->anggota->errors());
+            return redirect()->to('/dashboard/anggota/'. $id .'/edit')->withInput()->with('errors', $this->anggota->errors());
         }
 
         try {
             $this->anggota->protect(false)->update($id, $data);
         } catch (Exception $e) {
-            return redirect()->to('/dashboard/anggota/'. $id .'/edit')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+            return redirect()->to('/dashboard/anggota/'. $id .'/edit')->withInput()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
 
         return redirect()->to('/dashboard/anggota/'. $id .'/edit')->with('success', 'Berhasil mengupdate data');
