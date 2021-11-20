@@ -51,4 +51,13 @@ class OrganisasiController extends BaseController
 
         return redirect()->to('dashboard/organisasi/new')->with('success', 'Berhasil menambahkan data');
     }
+
+    public function edit($id)
+    {
+        $model = $this->organisasi;
+        $data['data'] = $model->where('id', $id)->first();
+        $data['title'] = 'Update Data';
+        
+        echo view('dashboard/organisasi/edit', $data);
+    }
 }

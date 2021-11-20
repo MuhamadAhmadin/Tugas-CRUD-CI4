@@ -25,24 +25,25 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="<?= base_url('dashboard/organisasi/store') ?>" method="post">
+                        <form action="<?= base_url('dashboard/organisasi/update') ?>" method="post">
+                            <input type="hidden" name="id" value="<?= $data->id ?>" />
                             <div class="card-body">
                                 <?= $this->include('layouts/components/validation_checker'); ?>
                                 <div class="form-group">
                                     <label>Kode</label>
-                                    <input type="text" name="kode" class="form-control">
+                                    <input type="text" name="kode" value="<?= $data->kode ?>" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Organisasi</label>
-                                    <input type="text" name="nama" class="form-control">
+                                    <input type="text" name="nama" value="<?= $data->nama ?>" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Founder Organisasi</label>
-                                    <input type="text" name="founder" class="form-control">
+                                    <input type="text" name="founder" value="<?= $data->founder ?>" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Tahun Dibentuk</label>
-                                    <input type="text" name="tahun" class="form-control">
+                                    <input type="text" name="tahun" value="<?= $data->tahun ?>" class="form-control">
                                 </div>
                             </div>
                             <!-- /.card-body -->

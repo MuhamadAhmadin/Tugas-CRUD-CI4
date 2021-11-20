@@ -56,8 +56,6 @@
                                         <td><?= $item['founder'] ?></td>
                                         <td><?= $item['tahun'] ?></td>
                                         <td>
-                                            <a href="<?= base_url('dashboard/organisasi/'.$item['id'].'/preview') ?>"
-                                                class="btn btn-sm btn-outline-secondary" target="_blank">Preview</a>
                                             <a href="<?= base_url('dashboard/organisasi/'.$item['id'].'/edit') ?>"
                                                 class="btn btn-sm btn-outline-secondary">Edit</a>
                                             <a href="#" data-href="<?= base_url('dashboard/organisasi/'.$item['id'].'/delete') ?>"
