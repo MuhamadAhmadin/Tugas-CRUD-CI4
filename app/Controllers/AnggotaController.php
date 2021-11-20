@@ -21,7 +21,6 @@ class AnggotaController extends BaseController
     public function index()
     {
         $data['anggotas'] = $this->anggota->get_data();
-        dd($data);
         $data['title'] = 'List Anggota';
 		echo view('dashboard/anggota/index', $data);
     }

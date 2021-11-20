@@ -38,37 +38,40 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <?= $this->include('layouts/components/validation_checker'); ?>
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Nama Pengumuman</th>
-                                        <th>Keterangan</th>
-                                        <th>Tanggal</th>
-                                        <th>Visible</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach($pengumumans as $item): ?>
-                                    <tr>
-                                        <td><?= $item->id ?></td>
-                                        <td><?= $item->judul ?></td>
-                                        <td><?= $item->deskripsi ?></td>
-                                        <td><?= $item->tanggal ?></td>
-                                        <td><?= $item->visible == 1 ? 'Ya' : 'Tidak'; ?></td>
-                                        <td class="d-flex justify-content-center">
-                                            <a href="<?= base_url('dashboard/pengumuman/'.$item->id.'/edit') ?>"
-                                                class="btn btn-sm btn-outline-warning mr-1">Edit</a>
-                                            <a href="#"
-                                                data-href="<?= base_url('dashboard/pengumuman/'.$item->id.'/delete') ?>"
-                                                onclick="confirmToDelete(this)"
-                                                class="btn btn-sm btn-outline-danger">Delete</a>
-                                        </td>
-                                    </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
+                            <div class="table-responsive">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nama Pengumuman</th>
+                                            <th>Keterangan</th>
+                                            <th>Tanggal</th>
+                                            <th>Visible</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach($pengumumans as $item): ?>
+                                        <tr>
+                                            <td><?= $item->id ?></td>
+                                            <td><?= $item->judul ?></td>
+                                            <td><?= $item->deskripsi ?></td>
+                                            <td><?= $item->tanggal ?></td>
+                                            <td><?= $item->visible == 1 ? 'Ya' : 'Tidak'; ?></td>
+                                            <td class="d-flex justify-content-center">
+                                                <a href="<?= base_url('dashboard/pengumuman/'.$item->id.'/edit') ?>"
+                                                    class="btn btn-sm btn-outline-warning mr-1">Edit</a>
+                                                <a href="#"
+                                                    data-href="<?= base_url('dashboard/pengumuman/'.$item->id.'/delete') ?>"
+                                                    onclick="confirmToDelete(this)"
+                                                    class="btn btn-sm btn-outline-danger">Delete</a>
+                                            </td>
+                                        </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>

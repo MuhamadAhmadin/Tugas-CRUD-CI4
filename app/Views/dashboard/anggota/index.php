@@ -38,41 +38,43 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <?= $this->include('layouts/components/validation_checker'); ?>
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>NIK</th>
-                                        <th>Nama</th>
-                                        <th>Alamat</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Organisasi</th>
-                                        <th>Jabatan</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach($anggotas as $item): ?>
-                                    <tr>
-                                        <td><?= $item->id ?></td>
-                                        <td><?= $item->nik ?></td>
-                                        <td><?= $item->nama ?></td>
-                                        <td><?= character_limiter($item->alamat, 40, '...'); ?></td>
-                                        <td><?= $item->gender == 'L' ? 'Laki-Laki' : 'Perempuan'; ?></td>
-                                        <td><?= $item->organisasi_id ?></td>
-                                        <td><?= $item->jabatan_id ?></td>
-                                        <td class="d-flex justify-content-center">
-                                            <a href="<?= base_url('dashboard/anggota/'.$item->id.'/edit') ?>"
-                                                class="btn btn-sm btn-outline-warning mr-1">Edit</a>
-                                            <a href="#"
-                                                data-href="<?= base_url('dashboard/anggota/'.$item->id.'/delete') ?>"
-                                                onclick="confirmToDelete(this)"
-                                                class="btn btn-sm btn-outline-danger">Delete</a>
-                                        </td>
-                                    </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
+                            <div class="table-responsive">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>NIK</th>
+                                            <th>Nama</th>
+                                            <th>Alamat</th>
+                                            <th>Jenis Kelamin</th>
+                                            <th>Organisasi</th>
+                                            <th>Jabatan</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach($anggotas as $item): ?>
+                                        <tr>
+                                            <td><?= $item->id ?></td>
+                                            <td><?= $item->nik ?></td>
+                                            <td><?= $item->nama ?></td>
+                                            <td><?= character_limiter($item->alamat, 40, '...'); ?></td>
+                                            <td><?= $item->gender == 'L' ? 'Laki-Laki' : 'Perempuan'; ?></td>
+                                            <td><?= $item->nama_organisasi ?></td>
+                                            <td><?= $item->nama_jabatan ?></td>
+                                            <td class="d-flex justify-content-center">
+                                                <a href="<?= base_url('dashboard/anggota/'.$item->id.'/edit') ?>"
+                                                    class="btn btn-sm btn-outline-warning mr-1">Edit</a>
+                                                <a href="#"
+                                                    data-href="<?= base_url('dashboard/anggota/'.$item->id.'/delete') ?>"
+                                                    onclick="confirmToDelete(this)"
+                                                    class="btn btn-sm btn-outline-danger">Delete</a>
+                                            </td>
+                                        </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>

@@ -34,6 +34,7 @@ $routes->setAutoRoute(false);
 $routes->get('/', 'PageController::index');
 
 $routes->group('dashboard', function($routes){
+    $routes->get('/', 'PageController::index');
     // ROute Organisasi
 	$routes->get('organisasi', 'OrganisasiController::index');
 	$routes->get('organisasi/(:segment)/preview', 'OrganisasiController::preview/$1');
