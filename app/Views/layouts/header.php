@@ -240,7 +240,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('/dashboard/organisasi') ?>" class="nav-link">
+              <a href="<?= base_url('/dashboard/anggota') ?>" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
                   Anggota
@@ -248,7 +248,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('/dashboard/organisasi') ?>" class="nav-link">
+              <a href="<?= base_url('/dashboard/pengumuman') ?>" class="nav-link">
                 <i class="nav-icon far fa-calendar-alt"></i>
                 <p>
                   Pengumuman
@@ -256,7 +256,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('/dashboard/organisasi') ?>" class="nav-link">
+              <a href="<?= base_url('/dashboard/berita') ?>" class="nav-link">
                 <i class="nav-icon fas fa-edit"></i>
                 <p>
                   Berita

@@ -34,6 +34,7 @@ $routes->setAutoRoute(false);
 $routes->get('/', 'PageController::index');
 
 $routes->group('dashboard', function($routes){
+    // ROute Organisasi
 	$routes->get('organisasi', 'OrganisasiController::index');
 	$routes->get('organisasi/(:segment)/preview', 'OrganisasiController::preview/$1');
     $routes->add('organisasi/new', 'OrganisasiController::new');
@@ -41,6 +42,24 @@ $routes->group('dashboard', function($routes){
 	$routes->add('organisasi/(:segment)/edit', 'OrganisasiController::edit/$1');
 	$routes->add('organisasi/(:segment)/update', 'OrganisasiController::update/$1');
 	$routes->get('organisasi/(:segment)/delete', 'OrganisasiController::delete/$1');
+
+    // Route Anggota
+	$routes->get('anggota', 'AnggotaController::index');
+	$routes->get('anggota/(:segment)/preview', 'AnggotaController::preview/$1');
+    $routes->add('anggota/new', 'AnggotaController::new');
+    $routes->add('anggota/store', 'AnggotaController::store');
+	$routes->add('anggota/(:segment)/edit', 'AnggotaController::edit/$1');
+	$routes->add('anggota/(:segment)/update', 'AnggotaController::update/$1');
+	$routes->get('anggota/(:segment)/delete', 'AnggotaController::delete/$1');
+
+    // Route Pengumuman
+	$routes->get('pengumuman', 'PengumumanController::index');
+	$routes->get('pengumuman/(:segment)/preview', 'PengumumanController::preview/$1');
+    $routes->add('pengumuman/new', 'PengumumanController::new');
+    $routes->add('pengumuman/store', 'PengumumanController::store');
+	$routes->add('pengumuman/(:segment)/edit', 'PengumumanController::edit/$1');
+	$routes->add('pengumuman/(:segment)/update', 'PengumumanController::update/$1');
+	$routes->get('pengumuman/(:segment)/delete', 'PengumumanController::delete/$1');
 });
 
 /*
