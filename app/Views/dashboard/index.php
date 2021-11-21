@@ -30,12 +30,12 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3><?= $jumlah_anggota ?></h3>
 
-                            <p>New Orders</p>
+                            <p>Jumlah Anggota</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-bag"></i>
+                            <i class="ion ion-person"></i>
                         </div>
                         <a href="<?= base_url('assets') ?>/#" class="small-box-footer">More info <i
                                 class="fas fa-arrow-circle-right"></i></a>
@@ -46,12 +46,12 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
+                            <h3><?= $jumlah_berita ?></h3>
 
-                            <p>Bounce Rate</p>
+                            <p>Jumlah Berita</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
+                            <i class="ion ion-document-text"></i>
                         </div>
                         <a href="<?= base_url('assets') ?>/#" class="small-box-footer">More info <i
                                 class="fas fa-arrow-circle-right"></i></a>
@@ -62,12 +62,12 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>44</h3>
+                            <h3><?= $jumlah_pengumuman ?></h3>
 
-                            <p>User Registrations</p>
+                            <p>Jumlah Pengumuman</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-person-add"></i>
+                            <i class="ion ion-android-notifications"></i>
                         </div>
                         <a href="<?= base_url('assets') ?>/#" class="small-box-footer">More info <i
                                 class="fas fa-arrow-circle-right"></i></a>
@@ -78,12 +78,12 @@
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>65</h3>
+                            <h3><?= $jumlah_organisasi ?></h3>
 
-                            <p>Unique Visitors</p>
+                            <p>Jumlah Organisasi</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
+                            <i class="ion ion-flag"></i>
                         </div>
                         <a href="<?= base_url('assets') ?>/#" class="small-box-footer">More info <i
                                 class="fas fa-arrow-circle-right"></i></a>
