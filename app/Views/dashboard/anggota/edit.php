@@ -25,25 +25,53 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="<?= base_url('dashboard/organisasi/'. $data->id .'/update') ?>" method="post">
+                        <form action="<?= base_url('dashboard/anggota/'. $data->id .'/update') ?>" method="post">
                             <input type="hidden" name="id" value="<?= $data->id ?>" />
                             <div class="card-body">
                                 <?= $this->include('layouts/components/validation_checker'); ?>
                                 <div class="form-group">
-                                    <label>Kode</label>
-                                    <input type="text" name="kode" value="<?= $data->kode ?>" class="form-control">
+                                    <label>NIK</label>
+                                    <input type="text" name="nik" value="<?= $data->nik ?>" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Nama Organisasi</label>
+                                    <label>Nama</label>
                                     <input type="text" name="nama" value="<?= $data->nama ?>" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Founder Organisasi</label>
-                                    <input type="text" name="founder" value="<?= $data->founder ?>" class="form-control">
+                                    <label>Alamat</label>
+                                    <textarea name="alamat" value="<?= $data->alamat ?>" id="alamat" cols="30" rows="4"
+                                        class="form-control"><?= $data->alamat ?></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label>Tahun Dibentuk</label>
-                                    <input type="text" name="tahun" value="<?= $data->tahun ?>" class="form-control">
+                                    <label>Jenis Kelamin</label>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" id="L" type="radio" name="gender" value="L" <?= $data->gender == 'L' ? 'checked' : '' ?>>
+                                            <label class="form-check-label" for="L">Laki-Laki</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" id="P" type="radio" name="gender" value="P" <?= $data->gender == 'P' ? 'checked' : '' ?>>
+                                            <label class="form-check-label" for="P">Perempuan</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Organisasi</label>
+                                    <select name="organisasi_id" id="organisasi_id" class="form-control">
+                                        <option value="" disabled selected>Silahkan Pilih</option>
+                                        <?php foreach($organisasis as $item): ?>
+                                            <option value="<?= $item->id ?>" <?= $data->organisasi_id == $item->id ? 'selected' : '' ?>><?= $item->nama ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Jabatan</label>
+                                    <select name="jabatan_id" id="jabatan_id" class="form-control">
+                                        <option value="" disabled selected>Silahkan Pilih</option>
+                                        <?php foreach($jabatans as $item): ?>
+                                            <option value="<?= $item->id ?>" <?= $data->jabatan_id == $item->id ? 'selected' : '' ?>><?= $item->nama ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
                             </div>
                             <!-- /.card-body -->

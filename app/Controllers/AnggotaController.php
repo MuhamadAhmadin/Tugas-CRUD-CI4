@@ -62,8 +62,12 @@ class AnggotaController extends BaseController
     public function edit($id)
     {
         $model = $this->anggota;
+        $organisasi = new Organisasi();
+        $jabatan = new Jabatan();
         $data['data'] = $model->where('id', $id)->first();
         $data['title'] = 'Update Data';
+        $data['organisasis'] = $organisasi->findAll();
+        $data['jabatans'] = $jabatan->findAll();
         
         echo view('dashboard/anggota/edit', $data);
     }
